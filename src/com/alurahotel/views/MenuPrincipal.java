@@ -150,6 +150,19 @@ public class MenuPrincipal extends JFrame {
 		btnLogin.add(imageLogin);
 		imageLogin.setHorizontalAlignment(SwingConstants.CENTER);
 		imageLogin.setIcon(new ImageIcon(MenuPrincipal.class.getResource("/com/alurahotel/views/images/login.png")));
+		
+		// Footer
+		JPanel footer = new JPanel();
+		footer.setBounds(0, 500, 910, 37);
+		footer.setBackground(new Color(12, 138, 199));
+		headerAndBody.add(footer);
+		footer.setLayout(null);
+		
+		JLabel labelCopyR = new JLabel("Desarrollado por Alan Montes de Oca Garcia © 2022");
+		labelCopyR.setBounds(270, 11, 370, 19);
+		labelCopyR.setForeground(new Color(240, 248, 255));
+		labelCopyR.setFont(new Font("Roboto", Font.PLAIN, 16));
+		footer.add(labelCopyR);
 	}
 	
 	// Content Panel Move 
