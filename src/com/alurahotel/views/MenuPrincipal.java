@@ -39,7 +39,7 @@ public class MenuPrincipal extends JFrame {
 	
 	// Create Frame
 	public MenuPrincipal() {
-		// Content Panel
+		// Window
 		setIconImage(Toolkit.getDefaultToolkit().getImage(MenuPrincipal.class.getResource("/com/alurahotel/views/images/aH-40px.png")));
 		setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
 		setBounds(100, 100, 910, 537);
@@ -136,10 +136,9 @@ public class MenuPrincipal extends JFrame {
 		btnLogin.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				// TODO
-				/*Login login = new Login();
+				Login login = new Login();
 				login.setVisible(true);
-				dispose();*/
+				dispose();
 			}
 		});
 		btnLogin.setLayout(null);
