@@ -51,17 +51,17 @@ public class MenuPrincipal extends JFrame {
 		setUndecorated(true);
 		
 		// Panel
-		Panel panel = new Panel();
-		panel.setBackground(SystemColor.window);
-		panel.setBounds(0, 0, 910, 537);
-		contentPanel.add(panel);
-		panel.setLayout(null);
+		Panel headerAndBody = new Panel();
+		headerAndBody.setBackground(SystemColor.window);
+		headerAndBody.setBounds(0, 0, 910, 537);
+		contentPanel.add(headerAndBody);
+		headerAndBody.setLayout(null);
 		
 		// Panel Body Logo - Image
 		JLabel backgroundImage = new JLabel("");
 		backgroundImage.setBounds(-50, 0, 732, 501);
 		backgroundImage.setIcon(new ImageIcon(MenuPrincipal.class.getResource("/com/alurahotel/views/images/menu-img.png")));
-		panel.add(backgroundImage);
+		headerAndBody.add(backgroundImage);
 		
 		// Panel - Header
 		JPanel header = new JPanel();
@@ -81,7 +81,7 @@ public class MenuPrincipal extends JFrame {
 		});
 		header.setLayout(null);
 		header.setBackground(Color.WHITE);
-		panel.add(header);
+		headerAndBody.add(header);
 		
 		// Panel - Header - Btn Exit/Close
 		JPanel btnExit = new JPanel();
@@ -118,13 +118,13 @@ public class MenuPrincipal extends JFrame {
 		JLabel imageLogo = new JLabel("");
 		imageLogo.setBounds(722, 80, 150, 156);
 		imageLogo.setIcon(new ImageIcon(MenuPrincipal.class.getResource("/com/alurahotel/views/images/aH-150px.png")));
-		panel.add(imageLogo);
+		headerAndBody.add(imageLogo);
 		
 		// Login
 		JLabel labelLoginTitulo = new JLabel("LOGIN");
 		labelLoginTitulo.setBounds(754, 265, 83, 24);
 		labelLoginTitulo.setBackground(SystemColor.window);
-		panel.add(labelLoginTitulo);
+		headerAndBody.add(labelLoginTitulo);
 		labelLoginTitulo.setHorizontalAlignment(SwingConstants.CENTER);
 		labelLoginTitulo.setForeground(SystemColor.textHighlight);
 		labelLoginTitulo.setFont(new Font("Roboto Light", Font.PLAIN, 20));
@@ -143,7 +143,7 @@ public class MenuPrincipal extends JFrame {
 		btnLogin.setLayout(null);
 		btnLogin.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 		btnLogin.setBackground(SystemColor.window);
-		panel.add(btnLogin);
+		headerAndBody.add(btnLogin);
 		
 		JLabel imageLogin = new JLabel("");
 		imageLogin.setBounds(0, 0, 80, 70);
