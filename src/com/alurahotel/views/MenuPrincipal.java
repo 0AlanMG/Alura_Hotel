@@ -18,7 +18,7 @@ import javax.swing.SwingConstants;
 import javax.swing.border.EmptyBorder;
 
 public class MenuPrincipal extends JFrame {
-	private JPanel contentPanel;
+	private JPanel window;
 	private JLabel labelExit;
 	int xMouse, yMouse;
 	
@@ -42,26 +42,26 @@ public class MenuPrincipal extends JFrame {
 		setIconImage(Toolkit.getDefaultToolkit().getImage(MenuPrincipal.class.getResource("/com/alurahotel/views/images/aH-40px.png")));
 		setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
 		setBounds(100, 100, 910, 537);
-		contentPanel = new JPanel();
-		contentPanel.setBorder(new EmptyBorder(5, 5, 5, 5));
-		setContentPane(contentPanel);
-		contentPanel.setLayout(null);
+		window = new JPanel();
+		window.setBorder(new EmptyBorder(5, 5, 5, 5));
+		setContentPane(window);
+		window.setLayout(null);
 		setResizable(false);
 		setLocationRelativeTo(null);
 		setUndecorated(true);
 		
 		// Panel
-		Panel headerAndBody = new Panel();
-		headerAndBody.setBackground(SystemColor.window);
-		headerAndBody.setBounds(0, 0, 910, 537);
-		contentPanel.add(headerAndBody);
-		headerAndBody.setLayout(null);
+		Panel contentPanel = new Panel();
+		contentPanel.setBackground(SystemColor.window);
+		contentPanel.setBounds(0, 0, 910, 537);
+		window.add(contentPanel);
+		contentPanel.setLayout(null);
 		
 		// Panel Body Logo - Image
 		JLabel backgroundImage = new JLabel("");
 		backgroundImage.setBounds(-50, 0, 732, 501);
 		backgroundImage.setIcon(new ImageIcon(MenuPrincipal.class.getResource("/com/alurahotel/views/images/menu-img.png")));
-		headerAndBody.add(backgroundImage);
+		contentPanel.add(backgroundImage);
 		
 		// Panel - Header
 		JPanel header = new JPanel();
@@ -81,7 +81,7 @@ public class MenuPrincipal extends JFrame {
 		});
 		header.setLayout(null);
 		header.setBackground(Color.WHITE);
-		headerAndBody.add(header);
+		contentPanel.add(header);
 		
 		// Panel - Header - Btn Exit/Close
 		JPanel btnExit = new JPanel();
@@ -118,13 +118,13 @@ public class MenuPrincipal extends JFrame {
 		JLabel imageLogo = new JLabel("");
 		imageLogo.setBounds(722, 80, 150, 156);
 		imageLogo.setIcon(new ImageIcon(MenuPrincipal.class.getResource("/com/alurahotel/views/images/aH-150px.png")));
-		headerAndBody.add(imageLogo);
+		contentPanel.add(imageLogo);
 		
 		// Login
 		JLabel labelLoginTitulo = new JLabel("LOGIN");
 		labelLoginTitulo.setBounds(754, 265, 83, 24);
 		labelLoginTitulo.setBackground(SystemColor.window);
-		headerAndBody.add(labelLoginTitulo);
+		contentPanel.add(labelLoginTitulo);
 		labelLoginTitulo.setHorizontalAlignment(SwingConstants.CENTER);
 		labelLoginTitulo.setForeground(SystemColor.textHighlight);
 		labelLoginTitulo.setFont(new Font("Roboto Light", Font.PLAIN, 20));
@@ -143,7 +143,7 @@ public class MenuPrincipal extends JFrame {
 		btnLogin.setLayout(null);
 		btnLogin.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 		btnLogin.setBackground(SystemColor.window);
-		headerAndBody.add(btnLogin);
+		contentPanel.add(btnLogin);
 		
 		JLabel imageLogin = new JLabel("");
 		imageLogin.setBounds(0, 0, 80, 70);
@@ -155,7 +155,7 @@ public class MenuPrincipal extends JFrame {
 		JPanel footer = new JPanel();
 		footer.setBounds(0, 500, 910, 37);
 		footer.setBackground(new Color(12, 138, 199));
-		headerAndBody.add(footer);
+		contentPanel.add(footer);
 		footer.setLayout(null);
 		
 		JLabel labelCopyR = new JLabel("Desarrollado por Alan Montes de Oca Garcia © 2022");
