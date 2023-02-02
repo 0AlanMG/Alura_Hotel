@@ -58,10 +58,10 @@ public class MenuPrincipal extends JFrame {
 		panel.setLayout(null);
 		
 		// Panel Body Logo - Image
-		JLabel imagenFondo = new JLabel("");
-		imagenFondo.setBounds(-50, 0, 732, 501);
-		imagenFondo.setIcon(new ImageIcon(MenuPrincipal.class.getResource("/com/alurahotel/views/images/menu-img.png")));
-		panel.add(imagenFondo);
+		JLabel backgroundImage = new JLabel("");
+		backgroundImage.setBounds(-50, 0, 732, 501);
+		backgroundImage.setIcon(new ImageIcon(MenuPrincipal.class.getResource("/com/alurahotel/views/images/menu-img.png")));
+		panel.add(backgroundImage);
 		
 		// Panel - Header
 		JPanel header = new JPanel();
