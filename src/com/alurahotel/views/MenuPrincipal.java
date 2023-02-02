@@ -13,6 +13,7 @@ import java.awt.event.MouseMotionAdapter;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.SwingConstants;
 import javax.swing.border.EmptyBorder;
@@ -88,8 +89,9 @@ public class MenuPrincipal extends JFrame {
 		btnExit.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				// TODO
-				System.exit(0);
+				if(JOptionPane.showConfirmDialog(null, "¿Quiere salir de la aplicación?", "Aviso", JOptionPane.YES_NO_CANCEL_OPTION) == 0) {
+					System.exit(0);
+				}
 			}
 			@Override
 			public void mouseEntered(MouseEvent e) {
