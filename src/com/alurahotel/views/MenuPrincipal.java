@@ -10,6 +10,7 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseMotionAdapter;
 
+import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -55,6 +56,12 @@ public class MenuPrincipal extends JFrame {
 		panel.setBounds(0, 0, 910, 537);
 		contentPanel.add(panel);
 		panel.setLayout(null);
+		
+		// Panel Body Logo - Image
+		JLabel imagenFondo = new JLabel("");
+		imagenFondo.setBounds(-50, 0, 732, 501);
+		imagenFondo.setIcon(new ImageIcon(MenuPrincipal.class.getResource("/com/alurahotel/views/images/menu-img.png")));
+		panel.add(imagenFondo);
 		
 		// Panel - Header
 		JPanel header = new JPanel();
