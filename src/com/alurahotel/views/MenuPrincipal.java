@@ -113,6 +113,43 @@ public class MenuPrincipal extends JFrame {
 		labelExit.setHorizontalAlignment(SwingConstants.CENTER);
 		labelExit.setFont(new Font("Roboto", Font.PLAIN, 18));
 		btnExit.add(labelExit);
+		
+		// Image Logo
+		JLabel imageLogo = new JLabel("");
+		imageLogo.setBounds(722, 80, 150, 156);
+		imageLogo.setIcon(new ImageIcon(MenuPrincipal.class.getResource("/com/alurahotel/views/images/aH-150px.png")));
+		panel.add(imageLogo);
+		
+		// Login
+		JLabel labelLoginTitulo = new JLabel("LOGIN");
+		labelLoginTitulo.setBounds(754, 265, 83, 24);
+		labelLoginTitulo.setBackground(SystemColor.window);
+		panel.add(labelLoginTitulo);
+		labelLoginTitulo.setHorizontalAlignment(SwingConstants.CENTER);
+		labelLoginTitulo.setForeground(SystemColor.textHighlight);
+		labelLoginTitulo.setFont(new Font("Roboto Light", Font.PLAIN, 20));
+		
+		JPanel btnLogin = new JPanel(); 
+		btnLogin.setBounds(754, 300, 83, 70);
+		btnLogin.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				// TODO
+				/*Login login = new Login();
+				login.setVisible(true);
+				dispose();*/
+			}
+		});
+		btnLogin.setLayout(null);
+		btnLogin.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+		btnLogin.setBackground(SystemColor.window);
+		panel.add(btnLogin);
+		
+		JLabel imageLogin = new JLabel("");
+		imageLogin.setBounds(0, 0, 80, 70);
+		btnLogin.add(imageLogin);
+		imageLogin.setHorizontalAlignment(SwingConstants.CENTER);
+		imageLogin.setIcon(new ImageIcon(MenuPrincipal.class.getResource("/com/alurahotel/views/images/login.png")));
 	}
 	
 	// Content Panel Move 
