@@ -1,4 +1,4 @@
-package com.alurahotel.views;
+package com.alurahotel.view;
 
 import java.awt.Color;
 import java.awt.EventQueue;
@@ -123,13 +123,13 @@ public class Login extends JFrame {
 		// Image Hotel
 		JLabel imageHotel = new JLabel("");
 		imageHotel.setBounds(0, 0, 304, 538);
-		imageHotel.setIcon(new ImageIcon(Login.class.getResource("/com/alurahotel/views/images/img-hotel-login-.png")));
+		imageHotel.setIcon(new ImageIcon(Login.class.getResource("/com/alurahotel/view/images/img-hotel-login-.png")));
 		imagePanel.add(imageHotel);
 		
 		// Image Logo
 		JLabel imageLogo = new JLabel("");
 		imageLogo.setHorizontalAlignment(SwingConstants.CENTER);
-		imageLogo.setIcon(new ImageIcon(Login.class.getResource("/com/alurahotel/views/images/lOGO-50PX.png")));
+		imageLogo.setIcon(new ImageIcon(Login.class.getResource("/com/alurahotel/view/images/lOGO-50PX.png")));
 		imageLogo.setBounds(65, 65, 48, 59);
 		contentPanel.add(imageLogo);
 		
