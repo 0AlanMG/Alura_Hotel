@@ -1,4 +1,4 @@
-package com.alurahotel.views;
+package com.alurahotel.view;
 
 import java.awt.Color;
 import java.awt.EventQueue;
@@ -40,7 +40,7 @@ public class MenuPrincipal extends JFrame {
 	// Create Frame
 	public MenuPrincipal() {
 		// Window
-		setIconImage(Toolkit.getDefaultToolkit().getImage(MenuPrincipal.class.getResource("/com/alurahotel/views/images/aH-40px.png")));
+		setIconImage(Toolkit.getDefaultToolkit().getImage(MenuPrincipal.class.getResource("/com/alurahotel/view/images/aH-40px.png")));
 		setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
 		setBounds(100, 100, 910, 537);
 		window = new JPanel();
@@ -61,7 +61,7 @@ public class MenuPrincipal extends JFrame {
 		// Panel Body Logo - Image
 		JLabel backgroundImage = new JLabel("");
 		backgroundImage.setBounds(-50, 0, 732, 501);
-		backgroundImage.setIcon(new ImageIcon(MenuPrincipal.class.getResource("/com/alurahotel/views/images/menu-img.png")));
+		backgroundImage.setIcon(new ImageIcon(MenuPrincipal.class.getResource("/com/alurahotel/view/images/menu-img.png")));
 		contentPanel.add(backgroundImage);
 		
 		// Panel - Header
@@ -119,7 +119,7 @@ public class MenuPrincipal extends JFrame {
 		// Image Logo
 		JLabel imageLogo = new JLabel("");
 		imageLogo.setBounds(722, 80, 150, 156);
-		imageLogo.setIcon(new ImageIcon(MenuPrincipal.class.getResource("/com/alurahotel/views/images/aH-150px.png")));
+		imageLogo.setIcon(new ImageIcon(MenuPrincipal.class.getResource("/com/alurahotel/view/images/aH-150px.png")));
 		contentPanel.add(imageLogo);
 		
 		// Login
@@ -150,7 +150,7 @@ public class MenuPrincipal extends JFrame {
 		imageLogin.setBounds(0, 0, 80, 70);
 		btnLogin.add(imageLogin);
 		imageLogin.setHorizontalAlignment(SwingConstants.CENTER);
-		imageLogin.setIcon(new ImageIcon(MenuPrincipal.class.getResource("/com/alurahotel/views/images/login.png")));
+		imageLogin.setIcon(new ImageIcon(MenuPrincipal.class.getResource("/com/alurahotel/view/images/login.png")));
 		
 		// Footer
 		JPanel footer = new JPanel();
