@@ -7,6 +7,7 @@ import java.awt.SystemColor;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
+import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -89,5 +90,12 @@ public class Login extends JFrame {
 		labelExit.setForeground(SystemColor.text);
 		labelExit.setFont(new Font("Roboto", Font.PLAIN, 18));
 		labelExit.setHorizontalAlignment(SwingConstants.CENTER);
+		
+		// Image Logo
+		JLabel imageLogo = new JLabel("");
+		imageLogo.setHorizontalAlignment(SwingConstants.CENTER);
+		imageLogo.setIcon(new ImageIcon(Login.class.getResource("/com/alurahotel/views/images/lOGO-50PX.png")));
+		imageLogo.setBounds(65, 65, 48, 59);
+		contentPanel.add(imageLogo);
 	}
 }
