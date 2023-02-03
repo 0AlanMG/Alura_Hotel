@@ -119,6 +119,12 @@ public class Login extends JFrame {
 		labelExit.setHorizontalAlignment(SwingConstants.CENTER);
 		btnExit.add(labelExit);
 		
+		// Image Hotel
+		JLabel imageHotel = new JLabel("");
+		imageHotel.setBounds(0, 0, 304, 538);
+		imageHotel.setIcon(new ImageIcon(Login.class.getResource("/com/alurahotel/views/images/img-hotel-login-.png")));
+		imagePanel.add(imageHotel);
+		
 		// Image Logo
 		JLabel imageLogo = new JLabel("");
 		imageLogo.setHorizontalAlignment(SwingConstants.CENTER);
