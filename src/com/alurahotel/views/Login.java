@@ -6,6 +6,7 @@ import java.awt.Font;
 import java.awt.SystemColor;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.awt.event.MouseMotionAdapter;
 
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
@@ -16,6 +17,7 @@ import javax.swing.border.EmptyBorder;
 
 public class Login extends JFrame {
 	private JPanel window;
+	int xMouse, yMouse;
 	private JLabel labelExit;
 	
 	// Show View
@@ -59,6 +61,26 @@ public class Login extends JFrame {
 		contentPanel.add(imagePanel);
 		imagePanel.setLayout(null);
 		
+		// Content Panel - Header
+		JPanel header = new JPanel();
+		header.addMouseMotionListener(new MouseMotionAdapter() {
+			@Override
+			public void mouseDragged(MouseEvent e) {
+				headerMouseDragged(e);
+			     
+			}
+		});
+		header.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mousePressed(MouseEvent e) {
+				headerMousePressed(e);
+			}
+		});
+		header.setBackground(SystemColor.window);
+		header.setBounds(0, 0, 784, 36);
+		contentPanel.add(header);
+		header.setLayout(null);
+		
 		// Btn Exit
 		JPanel btnExit = new JPanel();
 		btnExit.setBounds(251, 0, 53, 36);
@@ -73,11 +95,11 @@ public class Login extends JFrame {
 			public void mouseEntered(MouseEvent e) {
 				btnExit.setBackground(Color.red);
 				labelExit.setForeground(Color.white);
-			}			
+			}
 			@Override
 			public void mouseExited(MouseEvent e) {
 				btnExit.setBackground(new Color(12, 138, 199));
-			     labelExit.setForeground(Color.white);
+				labelExit.setForeground(Color.white);
 			}
 		});
 		btnExit.setBackground(new Color(12, 138, 199));
@@ -86,10 +108,10 @@ public class Login extends JFrame {
 		
 		labelExit = new JLabel("X");
 		labelExit.setBounds(0, 0, 53, 36);
-		btnExit.add(labelExit);
 		labelExit.setForeground(SystemColor.text);
 		labelExit.setFont(new Font("Roboto", Font.PLAIN, 18));
 		labelExit.setHorizontalAlignment(SwingConstants.CENTER);
+		btnExit.add(labelExit);
 		
 		// Image Logo
 		JLabel imageLogo = new JLabel("");
@@ -98,4 +120,15 @@ public class Login extends JFrame {
 		imageLogo.setBounds(65, 65, 48, 59);
 		contentPanel.add(imageLogo);
 	}
+	
+	private void headerMousePressed(java.awt.event.MouseEvent evt) {
+        xMouse = evt.getX();
+        yMouse = evt.getY();
+    }
+
+    private void headerMouseDragged(java.awt.event.MouseEvent evt) {
+        int x = evt.getXOnScreen();
+        int y = evt.getYOnScreen();
+        this.setLocation(x - xMouse, y - yMouse);
+    }
 }
