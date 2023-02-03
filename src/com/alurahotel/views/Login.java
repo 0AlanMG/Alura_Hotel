@@ -1,5 +1,6 @@
 package com.alurahotel.views;
 
+import java.awt.Color;
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
@@ -35,5 +36,19 @@ public class Login extends JFrame {
 		setContentPane(window);
 		window.setLayout(null);
 		setLocationRelativeTo(null);
+		
+		// Content Panel
+		JPanel contentPanel = new JPanel();
+		contentPanel.setBounds(0, 0, 788, 527);
+		contentPanel.setBackground(Color.WHITE);
+		window.add(contentPanel);
+		contentPanel.setLayout(null);
+		
+		// Image Panel
+		JPanel imagePanel = new JPanel();
+		imagePanel.setBackground(new Color(12, 138, 199));
+		imagePanel.setBounds(484, 0, 304, 527);
+		contentPanel.add(imagePanel);
+		imagePanel.setLayout(null);
 	}
 }
