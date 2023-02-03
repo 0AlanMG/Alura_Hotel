@@ -250,7 +250,7 @@ public class Login extends JFrame {
 	            menu.setVisible(true);
 	            dispose();*/
 	        }else {
-	            JOptionPane.showMessageDialog(this, "Usuario o Contraseña no válidos", "Aviso", JOptionPane.INFORMATION_MESSAGE);
+	            JOptionPane.showMessageDialog(this, "Usuario y/o Contraseña no válidos", "Aviso", JOptionPane.INFORMATION_MESSAGE);
 	        }
 	}
 	
