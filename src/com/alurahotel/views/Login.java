@@ -2,13 +2,20 @@ package com.alurahotel.views;
 
 import java.awt.Color;
 import java.awt.EventQueue;
+import java.awt.Font;
+import java.awt.SystemColor;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.SwingConstants;
 import javax.swing.border.EmptyBorder;
 
 public class Login extends JFrame {
 	private JPanel window;
+	private JLabel labelExit;
 	
 	// Show View
 	public static void main(String[] args) {
@@ -50,5 +57,37 @@ public class Login extends JFrame {
 		imagePanel.setBounds(484, 0, 304, 527);
 		contentPanel.add(imagePanel);
 		imagePanel.setLayout(null);
+		
+		// Btn Exit
+		JPanel btnExit = new JPanel();
+		btnExit.setBounds(251, 0, 53, 36);
+		imagePanel.add(btnExit);
+		btnExit.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				// TODO
+				System.exit(0);
+			}
+			@Override
+			public void mouseEntered(MouseEvent e) {
+				btnExit.setBackground(Color.red);
+				labelExit.setForeground(Color.white);
+			}			
+			@Override
+			public void mouseExited(MouseEvent e) {
+				btnExit.setBackground(new Color(12, 138, 199));
+			     labelExit.setForeground(Color.white);
+			}
+		});
+		btnExit.setBackground(new Color(12, 138, 199));
+		btnExit.setLayout(null);
+		btnExit.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+		
+		labelExit = new JLabel("X");
+		labelExit.setBounds(0, 0, 53, 36);
+		btnExit.add(labelExit);
+		labelExit.setForeground(SystemColor.text);
+		labelExit.setFont(new Font("Roboto", Font.PLAIN, 18));
+		labelExit.setHorizontalAlignment(SwingConstants.CENTER);
 	}
 }
