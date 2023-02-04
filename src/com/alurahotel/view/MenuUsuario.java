@@ -14,6 +14,7 @@ import java.util.Date;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JSeparator;
 import javax.swing.SwingConstants;
@@ -41,8 +42,7 @@ public class MenuUsuario extends JFrame {
 	// Create frame
 	public MenuUsuario() {
 		setIconImage(Toolkit.getDefaultToolkit().getImage(MenuUsuario.class.getResource("/com/alurahotel/view/images/aH-40px.png")));
-		// TODO Cambiar Codigo de salir
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
 		setBounds(100, 100, 944, 609);
 		window = new JPanel();
 		window.setBackground(Color.WHITE);
@@ -73,7 +73,11 @@ public class MenuUsuario extends JFrame {
 		btnExit.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				System.exit(0);
+				if(JOptionPane.showConfirmDialog(null, "¿Quiere cerrar sesión?", "Aviso", JOptionPane.YES_NO_OPTION) == 0) {
+					Login login = new Login();
+					login.setVisible(true);
+					dispose();
+				}
 			}
 			@Override
 			public void mouseEntered(MouseEvent e) {
