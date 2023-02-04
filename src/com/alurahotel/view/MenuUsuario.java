@@ -209,6 +209,42 @@ public class MenuUsuario extends JFrame {
 	    labelPanelFecha_Fecha.setFont(new Font("Roboto", Font.PLAIN, 33));
 	    labelPanelFecha_Fecha.setText("Hoy es " + fecha);
 	    panelFecha.add(labelPanelFecha_Fecha);
+	    
+	    // Titulo de Contenido
+	    JLabel labelTituloContenido = new JLabel("Bienvenido");
+	    labelTituloContenido.setFont(new Font("Roboto", Font.BOLD, 24));
+	    labelTituloContenido.setBounds(302, 234, 147, 46);
+	    window.add(labelTituloContenido);
+	    
+	    // Descripcion Parrafo 1
+	    String textoDescripcionP1 = "<html><body>Sistema de reserva de hotel. Controle y administre de forma óptima y fácil <br> el flujo de reservas y de huespédes del hotel   </body></html>";
+	    JLabel labelDescripcionP1 = new JLabel(textoDescripcionP1);
+	    labelDescripcionP1.setFont(new Font("Roboto", Font.PLAIN, 17));
+	    labelDescripcionP1.setBounds(312, 291, 598, 66);
+	    window.add(labelDescripcionP1);
+	    
+	    // Descripcion Parrafo 2
+	    String textoDescripcionP2 = "<html><body> Esta herramienta le permitirá llevar un control completo y detallado de sus reservas y huéspedes, tendrá acceso a heramientas especiales para tareas específicas como lo son:</body></html>";
+	    JLabel labelDescripcionP2 = new JLabel(textoDescripcionP2);
+	    labelDescripcionP2.setFont(new Font("Roboto", Font.PLAIN, 17));
+	    labelDescripcionP2.setBounds(311, 345, 569, 88);
+	    window.add(labelDescripcionP2);
+	    
+	    // Lista de Funciones
+	    JLabel labelFuncion1 = new JLabel("- Registro de Reservas y Huéspedes");
+	    labelFuncion1.setFont(new Font("Roboto", Font.PLAIN, 17));
+	    labelFuncion1.setBounds(312, 444, 295, 27);
+	    window.add(labelFuncion1);
+	    
+	    JLabel labelFuncion2 = new JLabel("- Edición de Reservas y Huéspedes existentes");
+	    labelFuncion2.setFont(new Font("Roboto", Font.PLAIN, 17));
+	    labelFuncion2.setBounds(312, 482, 355, 27);
+	    window.add(labelFuncion2);
+	    
+	    JLabel labelFuncion3 = new JLabel("- Eliminar todo tipo de registros");
+	    labelFuncion3.setFont(new Font("Roboto", Font.PLAIN, 17));
+	    labelFuncion3.setBounds(312, 520, 295, 27);
+	    window.add(labelFuncion3);
 	}
 	
 	// Content Panel Move
