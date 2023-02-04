@@ -19,6 +19,8 @@ import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 import javax.swing.border.EmptyBorder;
 
+import com.alurahotel.controller.UsuarioController;
+
 public class Login extends JFrame {
 	private JPanel window;
 	int xMouse, yMouse;
@@ -221,7 +223,14 @@ public class Login extends JFrame {
 			}
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				Login();
+				UsuarioController usuarioController = new UsuarioController();
+				if(usuarioController.autentificar(txtUser.getText(), new String (txtPassword.getPassword()))) {
+					MenuUsuario menu = new MenuUsuario();
+		            menu.setVisible(true);
+		            dispose();
+				}else {
+					JOptionPane.showMessageDialog(null, "Usuario y/o Contraseña no válidos", "Aviso", JOptionPane.INFORMATION_MESSAGE);
+				}
 			}
 		});
 		btnLogin.setBackground(SystemColor.textHighlight);
@@ -236,23 +245,6 @@ public class Login extends JFrame {
 		labelLogin.setHorizontalAlignment(SwingConstants.CENTER);
 		labelLogin.setFont(new Font("Roboto", Font.PLAIN, 18));
 		btnLogin.add(labelLogin);
-	}
-	
-	// Login Athenticator
-	private void Login() {
-		 String Usuario= "admin";
-	     String Contraseña="admin";
-
-	        String contrase=new String (txtPassword.getPassword());
-
-	        if(txtUser.getText().equals(Usuario) && contrase.equals(Contraseña)){
-	            // TODO
-	        	/*MenuUsuario menu = new MenuUsuario();
-	            menu.setVisible(true);
-	            dispose();*/
-	        }else {
-	            JOptionPane.showMessageDialog(this, "Usuario y/o Contraseña no válidos", "Aviso", JOptionPane.INFORMATION_MESSAGE);
-	        }
 	}
 	
 	// Window Move
