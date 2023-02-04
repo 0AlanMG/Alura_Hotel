@@ -8,6 +8,8 @@ import java.awt.Toolkit;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseMotionAdapter;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
@@ -181,6 +183,32 @@ public class MenuUsuario extends JFrame {
 		lblBusquedaDeReservas.setForeground(Color.WHITE);
 		lblBusquedaDeReservas.setFont(new Font("Roboto", Font.PLAIN, 18));
 		btnBusqueda.add(lblBusquedaDeReservas);
+		
+		// Window Panel Fecha
+		JPanel panelFecha = new JPanel();
+	    panelFecha.setBackground(new Color(118, 187, 223));
+	    panelFecha.setBounds(256, 84, 688, 121);
+	    panelFecha.setLayout(null);
+	    window.add(panelFecha);
+	    
+	    // Panel Fecha Titulo
+		JLabel labelPanelFechaTitulo = new JLabel("Sistema de reservas Hotel Alura");
+		labelPanelFechaTitulo.setBounds(180, 11, 356, 42);
+	    labelPanelFechaTitulo.setForeground(Color.WHITE);
+	    labelPanelFechaTitulo.setFont(new Font("Roboto", Font.PLAIN, 24));
+	    panelFecha.add(labelPanelFechaTitulo);
+	   
+	    // Fecha/Hora actual
+	    Date fechaActual = new Date();
+	    String fecha = new SimpleDateFormat("dd/MM/yyyy").format(fechaActual);
+	    
+	    // Panel Fecha Mostrar Fecha
+	    JLabel labelPanelFecha_Fecha = new JLabel("New label");
+	    labelPanelFecha_Fecha.setBounds(35, 64, 294, 36);
+	    labelPanelFecha_Fecha.setForeground(Color.WHITE);
+	    labelPanelFecha_Fecha.setFont(new Font("Roboto", Font.PLAIN, 33));
+	    labelPanelFecha_Fecha.setText("Hoy es " + fecha);
+	    panelFecha.add(labelPanelFecha_Fecha);
 	}
 	
 	// Content Panel Move
