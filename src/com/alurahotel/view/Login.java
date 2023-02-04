@@ -225,9 +225,9 @@ public class Login extends JFrame {
 			public void mouseClicked(MouseEvent e) {
 				UsuarioController usuarioController = new UsuarioController();
 				if(usuarioController.autentificar(txtUser.getText(), new String (txtPassword.getPassword()))) {
-					/*MenuUsuario menu = new MenuUsuario();
+					MenuUsuario menu = new MenuUsuario();
 		            menu.setVisible(true);
-		            dispose();*/
+		            dispose();
 				}else {
 					JOptionPane.showMessageDialog(null, "Usuario y/o Contraseña no válidos", "Aviso", JOptionPane.INFORMATION_MESSAGE);
 				}
