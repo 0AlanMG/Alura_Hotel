@@ -2,6 +2,7 @@ package com.alurahotel.view;
 
 import java.awt.Color;
 import java.awt.EventQueue;
+import java.awt.Font;
 import java.awt.SystemColor;
 import java.awt.Toolkit;
 import java.awt.event.MouseAdapter;
@@ -12,11 +13,13 @@ import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.SwingConstants;
 import javax.swing.border.EmptyBorder;
 
 public class Reservas extends JFrame {
 	private JPanel window;
 	int xMouse, yMouse;
+	private JLabel labelExit;
 	
 	// Show View
 	public static void main(String[] args) {
@@ -95,6 +98,38 @@ public class Reservas extends JFrame {
 		contentPanelHeader.setLayout(null);
 		contentPanelHeader.setBackground(Color.WHITE);
 		contentPanel.add(contentPanelHeader);
+		
+		// Btn Exit Close windows
+		JPanel btnExit = new JPanel();
+		btnExit.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				MenuUsuario menuUsuario = new MenuUsuario();
+				menuUsuario.setVisible(true);
+				dispose();
+			}
+			@Override
+			public void mouseEntered(MouseEvent e) {
+				btnExit.setBackground(Color.red);
+				labelExit.setForeground(Color.white);
+			}			
+			@Override
+			public void mouseExited(MouseEvent e) {
+				btnExit.setBackground(new Color(12, 138, 199));
+			     labelExit.setForeground(Color.white);
+			}
+		});
+		btnExit.setLayout(null);
+		btnExit.setBackground(new Color(12, 138, 199));
+		btnExit.setBounds(429, 0, 53, 36);
+		imagesPanel.add(btnExit);
+		
+		labelExit = new JLabel("X");
+		labelExit.setForeground(Color.WHITE);
+		labelExit.setBounds(0, 0, 53, 36);
+		labelExit.setHorizontalAlignment(SwingConstants.CENTER);
+		labelExit.setFont(new Font("Roboto", Font.PLAIN, 18));
+		btnExit.add(labelExit);
 	}
 	
 	// Window Move
