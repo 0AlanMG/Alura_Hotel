@@ -299,9 +299,11 @@ public class Reservas extends JFrame {
 		btnExit.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				MenuUsuario menuUsuario = new MenuUsuario();
-				menuUsuario.setVisible(true);
-				dispose();
+				if(JOptionPane.showConfirmDialog(null, "¿Quiere cerrar sesión?", "Aviso", JOptionPane.YES_NO_OPTION) == 0) {
+					Login login = new Login();
+					login.setVisible(true);
+					dispose();
+				}
 			}
 			@Override
 			public void mouseEntered(MouseEvent e) {
