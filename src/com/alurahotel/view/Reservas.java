@@ -8,7 +8,9 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseMotionAdapter;
 
+import javax.swing.ImageIcon;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
@@ -54,6 +56,27 @@ public class Reservas extends JFrame {
 		window.add(contentPanel);
 		contentPanel.setLayout(null);
 		
+		// Panel Imagenes
+		JPanel imagesPanel = new JPanel();
+		imagesPanel.setBounds(428, 0, 482, 560);
+		imagesPanel.setBackground(new Color(12, 138, 199));
+		imagesPanel.setLayout(null);
+		contentPanel.add(imagesPanel);
+		
+		// Logo
+		JLabel imageLogo = new JLabel("");
+		imageLogo.setBounds(197, 68, 104, 107);
+		imageLogo.setIcon(new ImageIcon(Reservas.class.getResource("/com/alurahotel/view/images/Ha-100px.png")));
+		imagesPanel.add(imageLogo);
+		
+		// Imagen Fondo
+		JLabel imagenFondo = new JLabel("");
+		imagenFondo.setBounds(0, 140, 500, 409);
+		imagenFondo.setBackground(Color.WHITE);
+		imagenFondo.setIcon(new ImageIcon(Reservas.class.getResource("/com/alurahotel/view/images/reservas-img-3.png")));
+		imagesPanel.add(imagenFondo);
+		
+		// Content Panel Header
 		JPanel contentPanelHeader = new JPanel();
 		contentPanelHeader.setBounds(0, 0, 910, 36);
 		contentPanelHeader.addMouseMotionListener(new MouseMotionAdapter() {
