@@ -11,6 +11,8 @@ import java.awt.event.MouseMotionAdapter;
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
 import java.text.Format;
+import java.util.Date;
+import java.util.concurrent.TimeUnit;
 
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.ImageIcon;
@@ -25,6 +27,8 @@ import javax.swing.SwingConstants;
 import javax.swing.border.EmptyBorder;
 import javax.swing.border.LineBorder;
 
+import com.alurahotel.controller.ReservaController;
+import com.alurahotel.model.Resultado;
 import com.toedter.calendar.JDateChooser;
 
 public class Reservas extends JFrame {
@@ -36,8 +40,10 @@ public class Reservas extends JFrame {
 	public static JDateChooser txtCheckIn;
 	public static JDateChooser txtCheckOut;
 	public static JTextField txtValor;
-	private JLabel labelValorSimbolo;
 	public static JComboBox<Format> txtFormaPago;
+	
+	ReservaController reservaController = new ReservaController();
+	Resultado resultado;
 	
 	// Show View
 	public static void main(String[] args) {
@@ -101,6 +107,26 @@ public class Reservas extends JFrame {
 		txtCheckIn.setBorder(new LineBorder(SystemColor.window));
 		txtCheckIn.setDateFormatString("yyyy-MM-dd");
 		txtCheckIn.setFont(new Font("Roboto", Font.PLAIN, 18));
+		txtCheckIn.addPropertyChangeListener(new PropertyChangeListener() {
+			public void propertyChange(PropertyChangeEvent evt) {
+				if(Reservas.txtCheckIn.getDate() != null) {
+					resultado = reservaController.validarDia(Reservas.txtCheckIn.getDate());
+					
+					if(resultado.getExito() && (Reservas.txtCheckIn.getDate() != null && Reservas.txtCheckOut.getDate() != null)) {
+						resultado = reservaController.validarDiasRegistrados(Reservas.txtCheckIn.getDate(), Reservas.txtCheckOut.getDate());
+						
+						if(resultado.getExito())
+							txtValor.setText("$   " + String.valueOf(reservaController.calcularValorResevar(Reservas.txtCheckIn.getDate(), Reservas.txtCheckOut.getDate())));
+					}
+					
+					if(!resultado.getExito()) {
+						txtCheckIn.setDate(null);
+						txtValor.setText(null);
+						JOptionPane.showMessageDialog(null, resultado.getMensaje(), "Aviso", JOptionPane.ERROR_MESSAGE);
+					}
+				}
+			}
+		});
 		contentPanel.add(txtCheckIn);
 		
 		JSeparator separatorCheckIn = new JSeparator();
@@ -125,8 +151,23 @@ public class Reservas extends JFrame {
 		txtCheckOut.setFont(new Font("Roboto", Font.PLAIN, 18));
 		txtCheckOut.addPropertyChangeListener(new PropertyChangeListener() {
 			public void propertyChange(PropertyChangeEvent evt) {
-				// TODO
-				// Activa el evento, después del usuario seleccionar las fechas se debe calcular el valor de la reserva
+				if(Reservas.txtCheckOut.getDate() != null) {
+					resultado = reservaController.validarDia(Reservas.txtCheckOut.getDate());
+					
+					if(resultado.getExito() && (Reservas.txtCheckIn.getDate() != null && Reservas.txtCheckOut.getDate() != null)) {
+						resultado = reservaController.validarDiasRegistrados(Reservas.txtCheckIn.getDate(), Reservas.txtCheckOut.getDate());
+						
+						if(resultado.getExito()) {
+							txtValor.setText("$   " + String.valueOf(reservaController.calcularValorResevar(Reservas.txtCheckIn.getDate(), Reservas.txtCheckOut.getDate())));
+						}
+					}
+					
+					if(!resultado.getExito()) {
+						txtCheckOut.setDate(null);
+						txtValor.setText(null);
+						JOptionPane.showMessageDialog(null, resultado.getMensaje(), "Aviso", JOptionPane.ERROR_MESSAGE);
+					}
+				}
 			}
 		});
 		txtCheckOut.setDateFormatString("yyyy-MM-dd");
@@ -147,14 +188,7 @@ public class Reservas extends JFrame {
 		labelValor.setFont(new Font("Roboto Black", Font.PLAIN, 18));
 		contentPanel.add(labelValor);
 		
-		labelValorSimbolo = new JLabel("$");
-		labelValorSimbolo.setVisible(false);
-		labelValorSimbolo.setBounds(121, 332, 17, 25);
-		labelValorSimbolo.setForeground(SystemColor.textHighlight);
-		labelValorSimbolo.setFont(new Font("Roboto", Font.BOLD, 17));
-		contentPanel.add(labelValorSimbolo);
-		
-		txtValor = new JTextField();
+		txtValor = new JTextField(null);
 		txtValor.setBackground(SystemColor.text);
 		txtValor.setHorizontalAlignment(SwingConstants.CENTER);
 		txtValor.setForeground(Color.BLACK);
