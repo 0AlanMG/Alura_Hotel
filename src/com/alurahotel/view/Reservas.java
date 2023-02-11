@@ -246,13 +246,21 @@ public class Reservas extends JFrame {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				if (Reservas.txtCheckIn.getDate() != null && Reservas.txtCheckOut.getDate() != null && !txtFormaPago.getSelectedItem().toString().equals("Elige una opción")) {
+					int reservaId = reservaController.agregarReserva(
+							Reservas.txtCheckIn.getDate(), 
+							Reservas.txtCheckOut.getDate(), 
+							valorTotal, 
+							txtFormaPago.getSelectedItem().toString());
+					
+					System.out.println(reservaId);
+					
 					// TODO Registrar Huesped
 					/*RegistroHuesped registro = new RegistroHuesped();
 					registro.setVisible(true);*/
 				} else {
 					JOptionPane.showMessageDialog(null, "Debes llenar todos los campos.");
 				}
-			}						
+			}
 		});
 		btnSiguiente.setLayout(null);
 		btnSiguiente.setBackground(SystemColor.textHighlight);

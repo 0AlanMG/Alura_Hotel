@@ -6,6 +6,9 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.concurrent.TimeUnit;
 
+import com.alurahotel.dao.ReservaDAO;
+import com.alurahotel.factory.ConnectionFactory;
+import com.alurahotel.model.Reserva;
 import com.alurahotel.model.Resultado;
 
 public class ReservaController {
@@ -13,6 +16,13 @@ public class ReservaController {
 	private DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd");
 	private Date hoy;
 	private double valorPorDia = 145.5;
+	
+	private Reserva reserva;
+	private ReservaDAO reservaDAO;
+	
+	public ReservaController() {
+		this.reservaDAO = new ReservaDAO(new ConnectionFactory().recoverConnection());
+	}
 	
 	public double calcularValorResevar(Date checkIn, Date checkOut) {
 		try {
@@ -61,5 +71,12 @@ public class ReservaController {
 		} catch (Exception e) {
 			return new Resultado(false, "Error Inesperado, por favor intente mas tarde.");
 		}
+	}
+
+	public int agregarReserva(Date checkIn, Date checkOut, double valorTotal, String formaPago) {
+		this.reserva = new Reserva(checkIn, checkOut, valorTotal, formaPago);
+		reservaDAO.agregar(this.reserva);
+		
+		return reserva.getId();
 	}
 }
