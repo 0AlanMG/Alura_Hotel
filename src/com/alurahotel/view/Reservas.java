@@ -252,11 +252,13 @@ public class Reservas extends JFrame {
 							valorTotal, 
 							txtFormaPago.getSelectedItem().toString());
 					
-					System.out.println(reservaId);
-					
-					// TODO Registrar Huesped
-					/*RegistroHuesped registro = new RegistroHuesped();
-					registro.setVisible(true);*/
+					if(reservaId != 0) {
+						Huespedes registro = new Huespedes(reservaId);
+						registro.setVisible(true);
+						dispose();
+					}else {
+						JOptionPane.showMessageDialog(null, "Error inesperado, por favor intente mas tarde.", "Aviso", JOptionPane.ERROR_MESSAGE);
+					}
 				} else {
 					JOptionPane.showMessageDialog(null, "Debes llenar todos los campos.");
 				}
