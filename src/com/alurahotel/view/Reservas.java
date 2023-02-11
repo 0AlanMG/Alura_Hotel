@@ -39,7 +39,9 @@ public class Reservas extends JFrame {
 	
 	public static JDateChooser txtCheckIn;
 	public static JDateChooser txtCheckOut;
+	//private JLabel labelValorSimbolo;
 	public static JTextField txtValor;
+	private double valorTotal;
 	public static JComboBox<Format> txtFormaPago;
 	
 	ReservaController reservaController = new ReservaController();
@@ -116,7 +118,8 @@ public class Reservas extends JFrame {
 						resultado = reservaController.validarDiasRegistrados(Reservas.txtCheckIn.getDate(), Reservas.txtCheckOut.getDate());
 						
 						if(resultado.getExito())
-							txtValor.setText("$   " + String.valueOf(reservaController.calcularValorResevar(Reservas.txtCheckIn.getDate(), Reservas.txtCheckOut.getDate())));
+							valorTotal = reservaController.calcularValorResevar(Reservas.txtCheckIn.getDate(), Reservas.txtCheckOut.getDate());
+							txtValor.setText("$   " + String.valueOf(valorTotal));
 					}
 					
 					if(!resultado.getExito()) {
@@ -158,7 +161,8 @@ public class Reservas extends JFrame {
 						resultado = reservaController.validarDiasRegistrados(Reservas.txtCheckIn.getDate(), Reservas.txtCheckOut.getDate());
 						
 						if(resultado.getExito()) {
-							txtValor.setText("$   " + String.valueOf(reservaController.calcularValorResevar(Reservas.txtCheckIn.getDate(), Reservas.txtCheckOut.getDate())));
+							valorTotal = reservaController.calcularValorResevar(Reservas.txtCheckIn.getDate(), Reservas.txtCheckOut.getDate());
+							txtValor.setText("$   " + String.valueOf(valorTotal));
 						}
 					}
 					
@@ -199,6 +203,12 @@ public class Reservas extends JFrame {
 		txtValor.setColumns(10);
 		contentPanel.add(txtValor);
 		
+		/*labelValorSimbolo = new JLabel("$");
+		labelValorSimbolo.setBounds(120, 332, 17, 25);
+		labelValorSimbolo.setForeground(SystemColor.textHighlight);
+		labelValorSimbolo.setFont(new Font("Roboto", Font.BOLD, 17));
+		contentPanel.add(labelValorSimbolo);*/
+		
 		JSeparator separatorValor = new JSeparator();
 		separatorValor.setForeground(SystemColor.textHighlight);
 		separatorValor.setBounds(47, 362, 330, 2);
@@ -218,6 +228,7 @@ public class Reservas extends JFrame {
 		txtFormaPago.setBorder(new LineBorder(new Color(255, 255, 255), 1, true));
 		txtFormaPago.setFont(new Font("Roboto", Font.PLAIN, 16));
 		txtFormaPago.setModel(new DefaultComboBoxModel(new String[] {
+				"Elige una opción", 
 				"Tarjeta de Crédito", 
 				"Tarjeta de Débito", 
 				"Dinero en Efectivo"}));
@@ -234,8 +245,7 @@ public class Reservas extends JFrame {
 		btnSiguiente.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				// TODO Verificar Validaciones
-				if (Reservas.txtCheckIn.getDate() != null && Reservas.txtCheckOut.getDate() != null) {		
+				if (Reservas.txtCheckIn.getDate() != null && Reservas.txtCheckOut.getDate() != null && !txtFormaPago.getSelectedItem().toString().equals("Elige una opción")) {
 					// TODO Registrar Huesped
 					/*RegistroHuesped registro = new RegistroHuesped();
 					registro.setVisible(true);*/
