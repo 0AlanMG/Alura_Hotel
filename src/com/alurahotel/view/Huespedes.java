@@ -317,12 +317,21 @@ public class Huespedes extends JFrame {
 			public void mouseClicked(MouseEvent e) {
 				if(!txtNombre.getText().equals("") && !txtApellido.getText().equals("") && txtFechaN.getDate() != null && !txtNacionalidad.getSelectedItem().equals("Elige una opción") && !txtTelefono.getText().equals("")) {
 					HuespedeController huespedeController = new HuespedeController();
-					Resultado resultado = huespedeController.validarFormulario(txtNombre.getText(), txtApellido.getText(), txtFechaN.getDate(), txtNacionalidad.getSelectedItem().toString(), txtTelefono.getText());
+					Resultado resultado = huespedeController.validarFormulario(txtNombre.getText(), txtApellido.getText(), txtFechaN.getDate(), txtTelefono.getText());
 					
 					if(!resultado.getExito()) {
 						JOptionPane.showMessageDialog(null, resultado.getMensaje(), "Aviso", JOptionPane.ERROR_MESSAGE);
 					}else {
-						// TODO Guardar Huesped	
+						int huespedId = huespedeController.agregarHuesped(txtNombre.getText(), txtApellido.getText(), txtFechaN.getDate(), txtNacionalidad.getSelectedItem().toString(), txtTelefono.getText(), reservaId);
+
+						if(huespedId != 0) {
+							JOptionPane.showMessageDialog(null, "Registro completado con éxito. Su número de reserva es: " + reservaId, "Exito", JOptionPane.INFORMATION_MESSAGE);
+							MenuUsuario menuUsuario = new MenuUsuario();
+							menuUsuario.setVisible(true);
+							dispose();
+						}else {
+							JOptionPane.showMessageDialog(null, "Error inesperado, por favor intente mas tarde.", "Aviso", JOptionPane.ERROR_MESSAGE);
+						}
 					}
 				}else {
 					JOptionPane.showMessageDialog(null, "Debes llenar todos los campos.");
