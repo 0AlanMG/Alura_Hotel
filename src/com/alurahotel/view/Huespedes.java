@@ -15,6 +15,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JSeparator;
 import javax.swing.JTextField;
@@ -120,15 +121,17 @@ public class Huespedes extends JFrame {
 		btnAtras.add(labelAtras);
 		
 		// Btn Exit/Close
-		/*JPanel btnExit = new JPanel();
+		JPanel btnExit = new JPanel();
 		btnExit.setBounds(857, 0, 53, 36);
 		btnExit.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				// TODO Desea cancelar la operacion
-				MenuPrincipal principal = new MenuPrincipal();
-				principal.setVisible(true);
-				dispose();
+				if(JOptionPane.showConfirmDialog(null, "¿Desea cancelar la operación?", "Advertencia", JOptionPane.WARNING_MESSAGE) == 0) {
+					// TODO Talves Eliminar Reserva
+					MenuUsuario menuUsuario = new MenuUsuario();
+					menuUsuario.setVisible(true);
+					dispose();
+				}
 			}
 			@Override
 			public void mouseEntered(MouseEvent e) {
@@ -143,14 +146,14 @@ public class Huespedes extends JFrame {
 		});
 		btnExit.setLayout(null);
 		btnExit.setBackground(Color.white);
-		window.add(btnExit);
+		header.add(btnExit);
 		
 		labelExit = new JLabel("X");
 		labelExit.setBounds(0, 0, 53, 36);
 		labelExit.setHorizontalAlignment(SwingConstants.CENTER);
 		labelExit.setForeground(SystemColor.black);
 		labelExit.setFont(new Font("Roboto", Font.PLAIN, 18));
-		btnExit.add(labelExit);*/
+		btnExit.add(labelExit);
 		
 		// Panel Izquierdo
 		JPanel contentPanel = new JPanel();
