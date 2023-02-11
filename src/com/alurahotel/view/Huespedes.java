@@ -22,6 +22,8 @@ import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 import javax.swing.border.EmptyBorder;
 
+import com.alurahotel.controller.HuespedeController;
+import com.alurahotel.model.Resultado;
 import com.toedter.calendar.JDateChooser;
 
 public class Huespedes extends JFrame {
@@ -92,7 +94,7 @@ public class Huespedes extends JFrame {
 		btnAtras.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				// TODO Desea cancelar la operacion
+				// TODO Talves Cargar Los Datos de la reserva
 				Reservas reservas = new Reservas();
 				reservas.setVisible(true);
 				dispose();				
@@ -313,7 +315,18 @@ public class Huespedes extends JFrame {
 		btnGuardar.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				//TODO Guardar Huesped
+				if(!txtNombre.getText().equals("") && !txtApellido.getText().equals("") && txtFechaN.getDate() != null && !txtNacionalidad.getSelectedItem().equals("Elige una opción") && !txtTelefono.getText().equals("")) {
+					HuespedeController huespedeController = new HuespedeController();
+					Resultado resultado = huespedeController.validarFormulario(txtNombre.getText(), txtApellido.getText(), txtFechaN.getDate(), txtNacionalidad.getSelectedItem().toString(), txtTelefono.getText());
+					
+					if(!resultado.getExito()) {
+						JOptionPane.showMessageDialog(null, resultado.getMensaje(), "Aviso", JOptionPane.ERROR_MESSAGE);
+					}else {
+						// TODO Guardar Huesped	
+					}
+				}else {
+					JOptionPane.showMessageDialog(null, "Debes llenar todos los campos.");
+				}
 			}
 		});
 		btnGuardar.setLayout(null);
